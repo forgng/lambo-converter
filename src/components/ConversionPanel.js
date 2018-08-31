@@ -10,7 +10,7 @@ const openPopUp = (ticker, isSwapped) => {
     isSwapped ? ticker.symbol + '/LAMBO' : 'LAMBO/' + ticker.symbol
   } is ${conversionRate(isSwapped, ticker.price)} ${
     isSwapped ? 'LAMBO' : ticker.symbol
-  } for 1 ${isSwapped ? ticker.symbol : 'LAMBO'}`;
+  } for 1 ${isSwapped ? ticker.symbol : 'LAMBO'} #${ticker.symbol} #LAMBO`;
   window.open(
     `http://twitter.com/share?url=${encodeURIComponent(
       url
@@ -47,10 +47,8 @@ const ConversionPanelWrapper = styled.div`
   margin: 0;
   padding: 20px;
   transition: all 300ms ease;
+  display: inline-block;
   &:hover {
-    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 20px 0px;
-    transform: scale(1.01, 1.01);
-    transition: all 300ms ease; */
     ${IconsWrapper} {
       visibility: visible;
       opacity: 1;

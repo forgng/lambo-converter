@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PRICE_LAMBO } from '../config';
+import { convertTsToDate } from '../helpers';
+import PropTypes from 'prop-types';
 
-const Footer = () => (
+const Footer = ({ lastUpdate }) => (
   <FooterContainer>
     <Thanks>
       Thanks to{' '}
@@ -25,8 +27,13 @@ const Footer = () => (
         Wikipedia
       </a>
     </Thanks>
+    Prices updated at {convertTsToDate(lastUpdate)}
   </FooterContainer>
 );
+
+Footer.propTypes = {
+  lastUpdate: PropTypes.number,
+};
 
 const Thanks = styled.p`
   font-size: 0.8rem;
@@ -36,6 +43,7 @@ const Thanks = styled.p`
 const FooterContainer = styled.footer`
   min-height: 30vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;

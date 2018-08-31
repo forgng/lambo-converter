@@ -25,6 +25,7 @@ class HomePage extends React.PureComponent {
       isSwapped: false,
       searchString: '',
       items: ['item1', 'item2', 'item3'],
+      lastTimestamp: 0,
     };
   }
   swap = () => this.setState({ isSwapped: !this.state.isSwapped });
@@ -63,9 +64,15 @@ class HomePage extends React.PureComponent {
         timestamp: ts,
       };
       window.localStorage.setItem('lastTickers', JSON.stringify(newPrices));
-      this.setState({ lastTickers: newPrices });
+      this.setState({
+        lastTickers: newPrices,
+        lastTimestamp: newPrices.timestamp,
+      });
     } else {
-      this.setState({ lastTickers: oldTickers });
+      this.setState({
+        lastTickers: oldTickers,
+        lastTimestamp: oldTickers.timestamp,
+      });
     }
     this.setState({ isLoading: false });
   }
@@ -78,7 +85,7 @@ class HomePage extends React.PureComponent {
             <Main>
               <PageContainer>
                 <MainTitle>LamboConverter</MainTitle>
-                <SubTitle>Convert your favorite cryptos in lambos</SubTitle>
+                <SubTitle>Convert your favorite crypto to Lambo</SubTitle>
                 <Search
                   searchString={this.state.searchString}
                   handleChangeSearch={newString =>
@@ -118,7 +125,12 @@ class HomePage extends React.PureComponent {
                             .includes(this.state.searchString.toUpperCase())
                         )
                         .map(ticker => styles => (
-                          <animated.li style={{ ...styles }}>
+                          <animated.li
+                            style={{
+                              ...styles,
+                              ...{ display: 'flex', justifyContent: 'center' },
+                            }}
+                          >
                             <ConversionPanel
                               ticker={ticker}
                               key={ticker.symbol}
@@ -131,7 +143,7 @@ class HomePage extends React.PureComponent {
                 ) : null}
               </PageContainer>
             </Main>
-            <Footer />
+            <Footer lastUpdate={this.state.lastTimestamp} />
           </>
         </ThemeProvider>
       </>

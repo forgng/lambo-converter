@@ -22,7 +22,7 @@ module.exports = {
         logo: './src/images/lamboconverter-logo.png',
 
         // WebApp Manifest Configuration
-        appName: 'Gatsby site',
+        appName: 'LamboConverter',
         appDescription: null,
         developerName: null,
         developerURL: null,

@@ -36,4 +36,12 @@ const conversionRate = (isSwapped, priceCoin) => {
     : roundTo(PRICE_LAMBO / priceCoin, decimals(PRICE_LAMBO / priceCoin));
 };
 
-export { roundTo, decimals, conversionRate };
+const convertTsToDate = timestamp => {
+  if (!timestamp) return '?';
+  const date = new Date(timestamp);
+  const hours = date.getHours();
+  const minutes = '0' + date.getMinutes();
+  return `${hours}:${minutes.substr(-2)}`;
+};
+
+export { roundTo, decimals, conversionRate, convertTsToDate };
