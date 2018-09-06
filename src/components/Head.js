@@ -10,7 +10,7 @@ const Head = () => (
       name="description"
       content="Lamborghini to cryptocurrencies converter"
     />
-    <meta name="keywords" content="forgiangi,gianluca,chiap" />
+    <meta name="keywords" content="lambo,lamborghini,cryptocurrency,bitcoin" />
     <meta property="og:url" content="https://lamboconverter.com/" />
     <meta property="og:site_name" content="LamboConverter" />
     <meta property="og:title" content="LamboConverter" />

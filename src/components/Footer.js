@@ -28,6 +28,16 @@ const Footer = ({ lastUpdate }) => (
       </a>
     </Thanks>
     Prices updated at {convertTsToDate(lastUpdate)}
+    <DownloadBash>
+      Download the Bash version{' '}
+      <a
+        href="https://github.com/forgiangi/lamboconverter-bash"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        here
+      </a>
+    </DownloadBash>
   </FooterContainer>
 );
 
@@ -35,6 +45,9 @@ Footer.propTypes = {
   lastUpdate: PropTypes.number,
 };
 
+const DownloadBash = styled.div`
+  margin-top: 10px;
+`;
 const Thanks = styled.p`
   font-size: 0.8rem;
   max-width: 780px;

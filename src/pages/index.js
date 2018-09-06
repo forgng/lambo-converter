@@ -85,7 +85,7 @@ class HomePage extends React.PureComponent {
             <Main>
               <PageContainer>
                 <MainTitle>LamboConverter</MainTitle>
-                <SubTitle>Convert your favorite crypto to Lambo</SubTitle>
+                <SubTitle>Convert your favourite crypto to Lambo</SubTitle>
                 <Search
                   searchString={this.state.searchString}
                   handleChangeSearch={newString =>
